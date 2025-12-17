@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserProfile } from '../types';
-import { KeyRound, UserCircle, Fingerprint, Calendar, Users, LogIn, UserPlus } from 'lucide-react';
+import { KeyRound, UserCircle, Fingerprint, Calendar, Users, LogIn, UserPlus, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { getStoredUsers, saveUserToStorage } from '../services/storage';
 
@@ -188,9 +188,19 @@ const AuthScreen: React.FC<AuthScreenProps> = ({ onLogin }) => {
             </div>
 
             <div className="space-y-2 pt-2">
-                <label className="text-sm font-medium text-blue-400 flex items-center gap-2">
-                <KeyRound className="w-4 h-4" /> Gemini API Key
-                </label>
+                <div className="flex items-center justify-between">
+                    <label className="text-sm font-medium text-blue-400 flex items-center gap-2">
+                        <KeyRound className="w-4 h-4" /> Gemini API Key
+                    </label>
+                    <a 
+                        href="https://aistudio.google.com/app/apikey" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-xs text-purple-400 hover:text-purple-300 flex items-center gap-1 transition-colors underline decoration-purple-400/50 hover:decoration-purple-300"
+                    >
+                        Get Key <ExternalLink size={10} />
+                    </a>
+                </div>
                 <input
                 type="password"
                 name="apiKey"
